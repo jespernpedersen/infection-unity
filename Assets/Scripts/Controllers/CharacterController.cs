@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour, iInfectable
 {
 
     private SpriteRenderer sprite;
@@ -22,6 +22,15 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField]
     private List<CharacterTraits> traits = new List<CharacterTraits>();
+
+    private bool isInfect = false;
+    public bool IsInfected { 
+        get{
+            return isInfected;
+        } 
+    }
+
+    public float infectionDuration { get; set; }
 
     private void Awake()
     {
@@ -53,7 +62,8 @@ public class CharacterController : MonoBehaviour
                 StartCoroutine(MoveTo(pos));
                 break;
             case CharacterStates.Interact:
-                StartCoroutine(Interact(gameObject));
+            Debug.Log(routine[curAction].interactWith.GetComponent<iInteractable>());
+                StartCoroutine(Interact(routine[curAction].interactWith.GetComponent<iInteractable>()));
                 break;
             default:
                 break;
@@ -112,7 +122,7 @@ public class CharacterController : MonoBehaviour
         MakeDecision();
     }
 
-    private IEnumerator Interact(GameObject objToInteract)
+    private IEnumerator Interact(iInteractable objToInteract = null)
     {
         if (inAction) yield return null;
 
@@ -125,10 +135,27 @@ public class CharacterController : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        inAction = false;
+
+        if (objToInteract != null)
+        {
+            objToInteract.Interact(this as iInfectable);
+        }
+
+            inAction = false;
         animator.SetBool("doInteract", false);
 
         MakeDecision();
 
+    }
+
+    public void Infect()
+    {
+        isInfected = true;
+    }
+
+    public IEnumerator Desinfect()
+    {
+        isInfected = false;
+        yield return null;
     }
 }

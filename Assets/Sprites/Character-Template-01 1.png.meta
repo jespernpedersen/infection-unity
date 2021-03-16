@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: 99aa52aac3ff2c4468df0988a15ebfc1
+guid: d9268a285f3041a45b7d4768d73fafe6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7519821036087622166
-    second: Character-Template-01_0
+      213: -3001316478154861620
+    second: Character-Template-01 1_0
   - first:
-      213: 8093124027665975729
-    second: Character-Template-01_1
+      213: 3147661503584190969
+    second: Character-Template-01 1_1
   - first:
-      213: 5643389358516786094
-    second: Character-Template-01_2
+      213: -5401479828199683626
+    second: Character-Template-01 1_2
   - first:
-      213: -3998935996980141883
-    second: Character-Template-01_3
+      213: -9014468108115890559
+    second: Character-Template-01 1_3
   - first:
-      213: 7747053263330451518
-    second: Character-Template-01_4
+      213: 5866984705965322492
+    second: Character-Template-01 1_4
   - first:
-      213: 4923226520805271116
-    second: Character-Template-01_5
+      213: -8295931366104533234
+    second: Character-Template-01 1_5
+  - first:
+      213: 2612901384927550512
+    second: Character-Template-01 1_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -61,12 +64,12 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -84,9 +87,9 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,9 +99,9 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,127 +112,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character-Template-01_0
+      name: Character-Template-01 1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 50
-        width: 20
+        width: 32
         height: 50
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae5cc710c9a34a790800000000000000
-      internalID: -7519821036087622166
+      spriteID: cc39d05909e2956d0800000000000000
+      internalID: -3001316478154861620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character-Template-01_1
+      name: Character-Template-01 1_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 33
         y: 50
-        width: 20
+        width: 32
         height: 50
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b985388c6d805070800000000000000
-      internalID: 8093124027665975729
+      spriteID: 9f1ce42e57dbeab20800000000000000
+      internalID: 3147661503584190969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character-Template-01_2
+      name: Character-Template-01 1_2
       rect:
         serializedVersion: 2
-        x: 40
+        x: 65
         y: 50
-        width: 20
+        width: 32
         height: 50
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3dc9bb8b8515e40800000000000000
-      internalID: 5643389358516786094
+      spriteID: 6d948bae6b61a05b0800000000000000
+      internalID: -5401479828199683626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character-Template-01_3
+      name: Character-Template-01 1_3
       rect:
         serializedVersion: 2
-        x: 60
+        x: 97
         y: 50
-        width: 20
+        width: 32
         height: 50
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c0e974e5ece088c0800000000000000
-      internalID: -3998935996980141883
+      spriteID: 18e2aa0340d26e280800000000000000
+      internalID: -9014468108115890559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character-Template-01_4
+      name: Character-Template-01 1_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 129
+        y: 50
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf076b56187bb6150800000000000000
+      internalID: 5866984705965322492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character-Template-01 1_5
+      rect:
+        serializedVersion: 2
+        x: 1
         y: 0
-        width: 20
+        width: 32
         height: 50
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e30a7d8b5ef038b60800000000000000
-      internalID: 7747053263330451518
+      spriteID: e077152506eeedc80800000000000000
+      internalID: -8295931366104533234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character-Template-01_5
+      name: Character-Template-01 1_6
       rect:
         serializedVersion: 2
-        x: 20
+        x: 33
         y: 0
-        width: 20
+        width: 32
         height: 50
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c466161bf60d25440800000000000000
-      internalID: 4923226520805271116
+      spriteID: 03c9bb147f3e24420800000000000000
+      internalID: 2612901384927550512
       vertices: []
       indices: 
       edges: []

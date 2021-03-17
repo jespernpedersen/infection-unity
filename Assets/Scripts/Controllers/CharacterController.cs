@@ -21,6 +21,8 @@ public class CharacterController : MonoBehaviour, iInfectable
     private int curAction = 0;
 
     [SerializeField]
+    private string HumanName = "";
+    [SerializeField]
     private List<CharacterTraits> traits = new List<CharacterTraits>();
 
     private bool isInfect = false;

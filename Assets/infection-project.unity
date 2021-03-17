@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa1cc629c438ca4599a648ef3fe5dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInfected: 1
 --- !u!95 &344814215
 Animator:
   serializedVersion: 3

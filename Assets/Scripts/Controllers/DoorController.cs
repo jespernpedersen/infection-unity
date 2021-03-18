@@ -6,6 +6,7 @@ using UnityEngine;
 public class DoorController : MonoBehaviour, iInteractable, iInfectable
 {
     private Animator animator;
+    [SerializeField]
     private ParticleSystem infectedParticles;
 
     private bool isOpen = false;

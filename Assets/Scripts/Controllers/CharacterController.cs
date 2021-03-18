@@ -18,12 +18,14 @@ public class CharacterController : MonoBehaviour, iInfectable
 
     [SerializeField]
     private List<Action> routine = new List<Action>();
-    private int curAction = 0;
+    private int curAction = -1;
 
     [SerializeField]
     private string HumanName = "";
     [SerializeField]
     private List<CharacterTraits> traits = new List<CharacterTraits>();
+
+    private GameObject canvas;
 
     private bool isInfect = false;
     public bool IsInfected { 
@@ -38,17 +40,24 @@ public class CharacterController : MonoBehaviour, iInfectable
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
+        canvas = transform.GetChild(0).gameObject;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        //subscribe to onTimeChange
+        SceneSingleton.Instance.level.onTimeChange(ShowInterface);
+        ShowInterface(SceneSingleton.Instance.level.TimeSpeed);
         MakeDecision();
     } 
 
     private void MakeDecision()
     {
         if (inAction || routine.Count == 0) return;
+
+        ++curAction;
+        if (curAction >= routine.Count) curAction = 0;
 
         switch (routine[curAction].action)
         {
@@ -64,15 +73,18 @@ public class CharacterController : MonoBehaviour, iInfectable
                 StartCoroutine(MoveTo(pos));
                 break;
             case CharacterStates.Interact:
-            Debug.Log(routine[curAction].interactWith.GetComponent<iInteractable>());
-                StartCoroutine(Interact(routine[curAction].interactWith.GetComponent<iInteractable>()));
+            
+                iInteractable obj = routine[curAction].interactWith != null ? 
+                                        routine[curAction].interactWith.GetComponent(typeof(iInteractable)) as iInteractable
+                                        : null;
+
+                StartCoroutine(Interact(obj));
+
                 break;
             default:
                 break;
         }
          
-        curAction++;
-        if (curAction >= routine.Count) curAction = 0;
     }
 
     /// <summary>
@@ -82,7 +94,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     private IEnumerator MoveTo(Vector2 point) 
     {
         if (inAction) yield return null;
-
+        
         inAction = true;
         state = CharacterStates.Move;
 
@@ -140,10 +152,10 @@ public class CharacterController : MonoBehaviour, iInfectable
 
         if (objToInteract != null)
         {
-            objToInteract.Interact(this as iInfectable);
+            objToInteract.Interact(this);
         }
 
-            inAction = false;
+        inAction = false;
         animator.SetBool("doInteract", false);
 
         MakeDecision();
@@ -159,5 +171,15 @@ public class CharacterController : MonoBehaviour, iInfectable
     {
         isInfected = false;
         yield return null;
+    }
+
+    /// <summary>
+    /// Shows/hides the character traits and name according to game+s timeflow
+    /// </summary>
+    /// <param name="timeSpeed">0 = paused => show; 1 = resumed => hide</param>
+    public void ShowInterface(float timeSpeed)
+    {
+        bool showCanvas = timeSpeed == 1 ? false : true;
+        canvas.SetActive(showCanvas);
     }
 }

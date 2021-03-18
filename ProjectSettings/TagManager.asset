@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Interactable
+    uniqueID: 3540111197
+    locked: 0

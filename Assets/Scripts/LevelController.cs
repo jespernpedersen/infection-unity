@@ -8,6 +8,7 @@ public class LevelController : MonoBehaviour
     public delegate void TimeCallback(float timeSpeed);
     private List<TimeCallback> timeChangeCallbacks = new List<TimeCallback>();
     private float timeSpeed = 0f;
+    private List<Objective> mainObjectives;
 
     public float TimeSpeed
     {
@@ -65,5 +66,17 @@ public class LevelController : MonoBehaviour
     public void onTimeChange(TimeCallback callback)
     {
         timeChangeCallbacks.Add(callback);
+    }
+
+    /// <summary>
+    /// Updates the objectives in the level, causes the level to be passed
+    /// </summary>
+    /// <param name="target">The human that became infected</param>
+    public void onHumanInfected(GameObject target)
+    {
+        foreach(Objective objective in mainObjectives)
+        {
+            objective.Complete(target);
+        }
     }
 }

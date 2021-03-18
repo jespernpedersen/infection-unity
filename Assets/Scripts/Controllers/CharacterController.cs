@@ -165,6 +165,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     public void Infect()
     {
         isInfected = true;
+        SceneSingleton.Instance.level.onHumanInfected(gameObject);
     }
 
     public IEnumerator Desinfect()

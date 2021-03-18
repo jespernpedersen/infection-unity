@@ -7,5 +7,6 @@ public class CanvasController : MonoBehaviour
 
     public GameObject ButtonPause;
     public GameObject ButtonPlay;
+    public GameObject ObjectivesList;
 
 }

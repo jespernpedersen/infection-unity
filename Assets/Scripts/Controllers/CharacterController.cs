@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
@@ -27,6 +28,8 @@ public class CharacterController : MonoBehaviour, iInfectable
 
     private GameObject canvas;
 
+    public Text NameTag;
+
     private bool isInfect = false;
     public bool IsInfected { 
         get{
@@ -41,6 +44,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         sprite = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         canvas = transform.GetChild(0).gameObject;
+        NameTag.text = HumanName;
     }
 
     // Start is called before the first frame update

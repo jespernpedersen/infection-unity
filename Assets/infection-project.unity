@@ -4027,6 +4027,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &863455023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7233926241645498245, guid: 7ff7470ec3a0b5f48bb204adde511dbc, type: 3}
+  m_PrefabInstance: {fileID: 5949541156345910527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &881661344
 GameObject:
   m_ObjectHideFlags: 0
@@ -5390,7 +5395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434080, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.94
+      value: -1.86
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434080, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5430,7 +5435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.size
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[0].action
@@ -5438,15 +5443,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[1].action
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[2].action
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[3].action
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[4].action
@@ -5458,35 +5463,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[6].action
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[0].duration
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[1].duration
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[2].duration
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[3].duration
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[4].duration
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[5].duration
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[6].duration
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[0].coordenate.x
@@ -5506,7 +5511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[2].coordenate.x
-      value: 0
+      value: -17.65
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[2].interactWith
@@ -5514,15 +5519,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[3].coordenate.x
-      value: 0
+      value: -17.65
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[3].interactWith
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 863455023}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[4].coordenate.x
-      value: 0
+      value: -17.65
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[4].interactWith
@@ -5530,28 +5535,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[5].coordenate.x
-      value: 0
+      value: -17.65
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
+      propertyPath: routine.Array.data[5].interactWith
+      value: 
+      objectReference: {fileID: 863455023}
+    - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: routine.Array.data[6].coordenate.x
-      value: 0
+      value: -17.65
       objectReference: {fileID: 0}
+    - target: {fileID: 6366852580010434082, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
+      propertyPath: routine.Array.data[6].interactWith
+      value: 
+      objectReference: {fileID: 863455023}
     - target: {fileID: 6366852580010434083, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434083, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: m_Size.x
-      value: 2.12
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434083, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: m_Size.y
-      value: 5.32
+      value: 4.95
       objectReference: {fileID: 0}
     - target: {fileID: 6366852580010434083, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3116507105065819356, guid: 3cfeac52ed7bbcf4d8eed02f419f20da, type: 3}
+      objectReference: {fileID: 4478751260791344795, guid: 9cd083f717434f149a7d1945e9e83833, type: 3}
     - target: {fileID: 6366852580010434083, guid: be6d3f9b7760ad148af12f8d7561ac13, type: 3}
       propertyPath: m_DrawMode
       value: 0

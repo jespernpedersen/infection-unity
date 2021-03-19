@@ -1,7 +1,34 @@
 fileFormatVersion: 2
 guid: 3a4eae53ee34ce448af5039d6d8ca458
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3969972960828795682
+    second: HumanSprites-01_0
+  - first:
+      213: -8378863863314168356
+    second: HumanSprites-01_1
+  - first:
+      213: -4498921758477816388
+    second: HumanSprites-01_2
+  - first:
+      213: 1495031124546414254
+    second: HumanSprites-01_3
+  - first:
+      213: -5397310604185293140
+    second: HumanSprites-01_4
+  - first:
+      213: 4478751260791344795
+    second: HumanSprites-01_5
+  - first:
+      213: 8819381112990908608
+    second: HumanSprites-01_6
+  - first:
+      213: 4044867468058648199
+    second: HumanSprites-01_7
+  - first:
+      213: 3765025574251260677
+    second: HumanSprites-01_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +59,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,7 +68,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +102,210 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HumanSprites-01_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 542
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b2b12cf5d281730800000000000000
+      internalID: 3969972960828795682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanSprites-01_1
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 542
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd54dcd95bb48bb80800000000000000
+      internalID: -8378863863314168356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanSprites-01_2
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 542
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd67a93f7e9091c0800000000000000
+      internalID: -4498921758477816388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanSprites-01_3
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 542
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea6edb203ea6fb410800000000000000
+      internalID: 1495031124546414254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanSprites-01_4
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 542
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae26170a96e815b0800000000000000
+      internalID: -5397310604185293140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanSprites-01_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 47
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e0dc0da88b72e30800000000000000
+      internalID: 4478751260791344795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanSprites-01_6
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 47
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0cc9a256cb46a70800000000000000
+      internalID: 8819381112990908608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanSprites-01_7
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 47
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e5b251881422830800000000000000
+      internalID: 4044867468058648199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanSprites-01_8
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 47
+        width: 225
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50be183dfce004430800000000000000
+      internalID: 3765025574251260677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

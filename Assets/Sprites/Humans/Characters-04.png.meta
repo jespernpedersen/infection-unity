@@ -32,7 +32,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -87,6 +87,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD:Assets/Sprites/Humans/Characters-04.png.meta
   - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
@@ -123,6 +124,8 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+>>>>>>> 16bee8a007d64af27277faa1055ed2dae680288d:Assets/Sprites/Humans/HumanSprites-02.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []

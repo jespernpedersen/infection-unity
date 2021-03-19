@@ -7,6 +7,7 @@ public class SceneSingleton : MonoBehaviour
     public static SceneSingleton Instance;
     public LevelController level;
     public CanvasController canvas;
+    public TraitsList traitsList = new TraitsList();
 
     // Start is called before the first frame update
     void Awake()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
@@ -15,6 +16,9 @@ public class CharacterController : MonoBehaviour, iInfectable
 
     private bool inAction = false;
     private CharacterStates state;
+
+    [SerializeField]
+    private GameObject traitUi;
 
     [SerializeField]
     private List<Action> routine = new List<Action>();
@@ -41,6 +45,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         sprite = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         canvas = transform.GetChild(0).gameObject;
+
     }
 
     // Start is called before the first frame update
@@ -48,6 +53,25 @@ public class CharacterController : MonoBehaviour, iInfectable
     {
         //subscribe to onTimeChange
         SceneSingleton.Instance.level.onTimeChange(ShowInterface);
+
+        Transform traitsGrid = canvas.transform.GetChild(1);
+        foreach (CharacterTraits trait in traits)
+        {
+            GameObject newTrait = Instantiate(traitUi, traitsGrid);
+            Trait traitReference = new Trait();
+            foreach (Trait traitModel in SceneSingleton.Instance.traitsList.list)
+            {
+                if (traitModel.trait == trait)
+                {
+                    traitReference = traitModel;
+                    break;
+                }
+            }
+
+            newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
+            newTrait.GetComponent<Image>().color = traitReference.colour;
+        }
+
         ShowInterface(SceneSingleton.Instance.level.TimeSpeed);
         MakeDecision();
     } 

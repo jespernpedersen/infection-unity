@@ -29,6 +29,33 @@ TextureImporter:
   - first:
       213: 3765025574251260677
     second: HumanSprites-01_8
+  - first:
+      213: -2822968062654147850
+    second: Characters-02_0
+  - first:
+      213: -3647385515424316841
+    second: Characters-02_1
+  - first:
+      213: 4360762715256377388
+    second: Characters-02_2
+  - first:
+      213: -8060394199740078955
+    second: Characters-02_3
+  - first:
+      213: -3500825011150094641
+    second: Characters-02_4
+  - first:
+      213: -3638563188302416054
+    second: Characters-02_5
+  - first:
+      213: 3047764983081940659
+    second: Characters-02_6
+  - first:
+      213: 2527004835539420273
+    second: Characters-02_7
+  - first:
+      213: -4047614871199528812
+    second: Characters-02_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HumanSprites-01_0
+      name: Characters-02_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 542
-        width: 225
-        height: 495
+        x: 0
+        y: 487.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22b2b12cf5d281730800000000000000
-      internalID: 3969972960828795682
+      spriteID: 6f21a35f08dc2d8d0800000000000000
+      internalID: -2822968062654147850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HumanSprites-01_1
+      name: Characters-02_1
       rect:
         serializedVersion: 2
-        x: 226
-        y: 542
-        width: 225
-        height: 495
+        x: 225
+        y: 487.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd54dcd95bb48bb80800000000000000
-      internalID: -8378863863314168356
+      spriteID: 7528a3ac232e16dc0800000000000000
+      internalID: -3647385515424316841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HumanSprites-01_2
+      name: Characters-02_2
       rect:
         serializedVersion: 2
-        x: 451
-        y: 542
-        width: 225
-        height: 495
+        x: 450
+        y: 487.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbd67a93f7e9091c0800000000000000
-      internalID: -4498921758477816388
+      spriteID: c20df90d59a848c30800000000000000
+      internalID: 4360762715256377388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HumanSprites-01_3
+      name: Characters-02_3
       rect:
         serializedVersion: 2
-        x: 676
-        y: 542
-        width: 225
-        height: 495
+        x: 675
+        y: 487.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea6edb203ea6fb410800000000000000
-      internalID: 1495031124546414254
+      spriteID: 594afde5e2ab32090800000000000000
+      internalID: -8060394199740078955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HumanSprites-01_4
+      name: Characters-02_4
       rect:
         serializedVersion: 2
-        x: 901
-        y: 542
-        width: 225
-        height: 495
+        x: 900
+        y: 487.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +243,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cae26170a96e815b0800000000000000
-      internalID: -5397310604185293140
+      spriteID: fce789553329a6fc0800000000000000
+      internalID: -3500825011150094641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HumanSprites-01_5
+      name: Characters-02_5
       rect:
         serializedVersion: 2
-        x: 1
-        y: 47
-        width: 225
-        height: 495
+        x: 0
+        y: 0.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +264,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9e0dc0da88b72e30800000000000000
-      internalID: 4478751260791344795
+      spriteID: a47fb64ee0a318dc0800000000000000
+      internalID: -3638563188302416054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HumanSprites-01_6
+      name: Characters-02_6
       rect:
         serializedVersion: 2
-        x: 226
-        y: 47
-        width: 225
-        height: 495
+        x: 225
+        y: 0.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +285,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c0cc9a256cb46a70800000000000000
-      internalID: 8819381112990908608
+      spriteID: 3b63977ba16db4a20800000000000000
+      internalID: 3047764983081940659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HumanSprites-01_7
+      name: Characters-02_7
       rect:
         serializedVersion: 2
-        x: 451
-        y: 47
-        width: 225
-        height: 495
+        x: 450
+        y: 0.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +306,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78e5b251881422830800000000000000
-      internalID: 4044867468058648199
+      spriteID: 17485006289b11320800000000000000
+      internalID: 2527004835539420273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HumanSprites-01_8
+      name: Characters-02_8
       rect:
         serializedVersion: 2
-        x: 676
-        y: 47
-        width: 225
-        height: 495
+        x: 675
+        y: 0.5
+        width: 225.8
+        height: 487.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,8 +327,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50be183dfce004430800000000000000
-      internalID: 3765025574251260677
+      spriteID: 498409648bbf3d7c0800000000000000
+      internalID: -4047614871199528812
       vertices: []
       indices: 
       edges: []

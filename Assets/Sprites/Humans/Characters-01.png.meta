@@ -1,7 +1,34 @@
 fileFormatVersion: 2
 guid: d50048a73cb721a478e28ac34314c450
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1911352379194107764
+    second: Characters-01_0
+  - first:
+      213: 240123585292260495
+    second: Characters-01_1
+  - first:
+      213: -1896223915653921176
+    second: Characters-01_2
+  - first:
+      213: 7154187758113500666
+    second: Characters-01_3
+  - first:
+      213: -1194653326602602065
+    second: Characters-01_4
+  - first:
+      213: 7811464842749272705
+    second: Characters-01_5
+  - first:
+      213: -3748087830773429947
+    second: Characters-01_6
+  - first:
+      213: 8452373785149748677
+    second: Characters-01_7
+  - first:
+      213: -1586109069155960014
+    second: Characters-01_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +68,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +102,246 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Characters-01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 518.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88998d43238975e0800000000000000
+      internalID: -1911352379194107764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Characters-01_1
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 518.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84d98be027155300800000000000000
+      internalID: 240123585292260495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Characters-01_2
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 518.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86609d435624fa5e0800000000000000
+      internalID: -1896223915653921176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Characters-01_3
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 518.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdadca8cd7c84360800000000000000
+      internalID: 7154187758113500666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Characters-01_4
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 518.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa9fc16012dbb6fe0800000000000000
+      internalID: -1194653326602602065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Characters-01_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182e58733e5e76c60800000000000000
+      internalID: 7811464842749272705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Characters-01_6
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54909c3e9fd1cfbc0800000000000000
+      internalID: -3748087830773429947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Characters-01_7
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5bcaccc2ddc4570800000000000000
+      internalID: 8452373785149748677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Characters-01_8
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 0.5
+        width: 225.8
+        height: 518.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23bfee584320df9e0800000000000000
+      internalID: -1586109069155960014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -5,7 +5,6 @@ using UnityEngine;
 public interface iInfectable
 {
     public bool IsInfected { get; }
-    public float infectionDuration { get; set; }
-    public void Infect();
-    public IEnumerator Desinfect();
+    public void Infect(float duration = -1);
+    public IEnumerator Desinfect(float waitBeforeDesinfect = -1);
 }

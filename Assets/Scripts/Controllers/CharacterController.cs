@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
@@ -15,6 +16,9 @@ public class CharacterController : MonoBehaviour, iInfectable
 
     private bool inAction = false;
     private CharacterStates state;
+
+    [SerializeField]
+    private GameObject traitUi;
 
     [SerializeField]
     private List<Action> routine = new List<Action>();
@@ -41,6 +45,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         sprite = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
         canvas = transform.GetChild(0).gameObject;
+
     }
 
     // Start is called before the first frame update
@@ -48,6 +53,26 @@ public class CharacterController : MonoBehaviour, iInfectable
     {
         //subscribe to onTimeChange
         SceneSingleton.Instance.level.onTimeChange(ShowInterface);
+
+        Transform traitsGrid = canvas.transform.GetChild(1);
+        foreach (CharacterTraits trait in traits)
+        {
+            GameObject newTrait = Instantiate(traitUi, traitsGrid);
+            Trait traitReference = new Trait();
+            foreach (Trait traitModel in SceneSingleton.Instance.traitsList.list)
+            {
+                if (traitModel.trait == trait)
+                {
+                    traitReference = traitModel;
+                    break;
+                }
+            }
+
+            newTrait.GetComponent<Image>().color = traitReference.colour;
+            newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
+           
+        }
+
         ShowInterface(SceneSingleton.Instance.level.TimeSpeed);
         MakeDecision();
     } 
@@ -103,7 +128,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         sprite.flipX = direction > 0 ? false : true;
         point.y = transform.position.y;
 
-        animator.SetBool("isWalking", true);
+        animator.SetBool("doWalk", true);
 
         while(Vector2.Distance(transform.position, point) > 0.5f)
         {
@@ -111,7 +136,7 @@ public class CharacterController : MonoBehaviour, iInfectable
             yield return new WaitForEndOfFrame();
 
         }
-        animator.SetBool("isWalking", false);
+        animator.SetBool("doWalk", false);
 
         state = CharacterStates.Idle;
         inAction = false;
@@ -162,12 +187,13 @@ public class CharacterController : MonoBehaviour, iInfectable
 
     }
 
-    public void Infect()
+    public void Infect(float duration = -1)
     {
         isInfected = true;
+        SceneSingleton.Instance.level.onHumanInfected(gameObject);
     }
 
-    public IEnumerator Desinfect()
+    public IEnumerator Desinfect(float waitBeforeDesinfect = -1)
     {
         isInfected = false;
         yield return null;

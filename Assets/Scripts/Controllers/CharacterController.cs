@@ -18,7 +18,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     private CharacterStates state;
 
     [SerializeField]
-    private GameObject traitUi;
+    private GameObject traitPrefab;
 
     [SerializeField]
     private List<Action> routine = new List<Action>();
@@ -57,7 +57,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         Transform traitsGrid = canvas.transform.GetChild(1);
         foreach (CharacterTraits trait in traits)
         {
-            GameObject newTrait = Instantiate(traitUi, traitsGrid);
+            GameObject newTrait = Instantiate(traitPrefab, traitsGrid);
             Trait traitReference = new Trait();
             foreach (Trait traitModel in SceneSingleton.Instance.traitsList.list)
             {

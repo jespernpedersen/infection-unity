@@ -103,7 +103,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         sprite.flipX = direction > 0 ? false : true;
         point.y = transform.position.y;
 
-        animator.SetBool("isWalking", true);
+        animator.SetBool("doWalk", true);
 
         while(Vector2.Distance(transform.position, point) > 0.5f)
         {
@@ -111,7 +111,7 @@ public class CharacterController : MonoBehaviour, iInfectable
             yield return new WaitForEndOfFrame();
 
         }
-        animator.SetBool("isWalking", false);
+        animator.SetBool("doWalk", false);
 
         state = CharacterStates.Idle;
         inAction = false;

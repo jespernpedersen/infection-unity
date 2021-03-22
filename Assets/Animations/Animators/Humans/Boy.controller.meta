@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations/Animators/Humans/Boy.controller.meta
 guid: 0057aebdd1a13244ca95bd3d82fdc353
+=======
+guid: 3db4a245ae434d144a90ee667e475c9f
+>>>>>>> main:Assets/Animations/Human.controller.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000

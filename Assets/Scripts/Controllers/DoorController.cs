@@ -19,7 +19,6 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
             return isInfected;
         }
     }
-    public float infectionDuration { get; set; }
 
     // Start is called before the first frame update
     private void Awake()
@@ -45,14 +44,18 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
       
     }
 
-    public void Infect()
+    public void Infect(float duration = -1)
     {
         isInfected = true;
         infectedParticles.Play();
-        StartCoroutine(Desinfect());
+
+        if (duration != -1)
+        {
+            StartCoroutine(Desinfect(duration));
+        }
     }
 
-    public IEnumerator Desinfect()
+    public IEnumerator Desinfect(float infectionDuration)
     {
         yield return new WaitForSeconds(infectionDuration);
         isInfected = false;

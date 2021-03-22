@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
     public delegate void TimeCallback(float timeSpeed);
     private List<TimeCallback> timeChangeCallbacks = new List<TimeCallback>();
     private float timeSpeed = 0f;
+    [SerializeField]
     private List<Objective> mainObjectives;
 
     public float TimeSpeed
@@ -20,6 +22,14 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach(Objective objective in mainObjectives)
+        {
+            GameObject objectiveUI = Instantiate(SceneSingleton.Instance.canvas.ObjectivePrefab, SceneSingleton.Instance.canvas.ObjectivesList.transform.GetChild(0));
+            objective.textUi = objectiveUI.transform.GetChild(0).GetComponent<Text>();
+            objective.UpdateUI();
+            objective.onComplete(CompleteLevel);
+        }
+
         ChangeTimeSpeed(0);
     }
 
@@ -77,6 +87,24 @@ public class LevelController : MonoBehaviour
         foreach(Objective objective in mainObjectives)
         {
             objective.Complete(target);
+        }
+    }
+
+    public void CompleteLevel()
+    {
+        int completeCounter = 0;
+        foreach(Objective objective in mainObjectives)
+        {
+            if (objective.IsComplete)
+            {
+                completeCounter++;
+            }
+        }
+
+        if(completeCounter >= mainObjectives.Count)
+        {
+            SceneSingleton.Instance.canvas.CloseInterfaces();
+            SceneSingleton.Instance.canvas.LevelComplete.SetActive(true);
         }
     }
 }

@@ -68,8 +68,9 @@ public class CharacterController : MonoBehaviour, iInfectable
                 }
             }
 
-            newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
             newTrait.GetComponent<Image>().color = traitReference.colour;
+            newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
+           
         }
 
         ShowInterface(SceneSingleton.Instance.level.TimeSpeed);
@@ -127,7 +128,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         sprite.flipX = direction > 0 ? false : true;
         point.y = transform.position.y;
 
-        animator.SetBool("isWalking", true);
+        animator.SetBool("doWalk", true);
 
         while(Vector2.Distance(transform.position, point) > 0.5f)
         {
@@ -135,7 +136,7 @@ public class CharacterController : MonoBehaviour, iInfectable
             yield return new WaitForEndOfFrame();
 
         }
-        animator.SetBool("isWalking", false);
+        animator.SetBool("doWalk", false);
 
         state = CharacterStates.Idle;
         inAction = false;
@@ -186,13 +187,13 @@ public class CharacterController : MonoBehaviour, iInfectable
 
     }
 
-    public void Infect()
+    public void Infect(float duration = -1)
     {
         isInfected = true;
         SceneSingleton.Instance.level.onHumanInfected(gameObject);
     }
 
-    public IEnumerator Desinfect()
+    public IEnumerator Desinfect(float waitBeforeDesinfect = -1)
     {
         isInfected = false;
         yield return null;

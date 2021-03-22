@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class Objective
 {
+    [SerializeField]
     private ObjectiveType type;
-    public string description { get; private set; }
-    public int counter { get; private set; }
-    public int goal { get; private set; }
-    public bool isComplete { get; private set; }
-    public GameObject target { get; private set; }
+    [SerializeField]
+    private string description;
+    private int counter;
+    [SerializeField]
+    private int goal;
+    private bool isComplete;
+    [SerializeField]
+    private GameObject target;
+    [HideInInspector]
     public Text textUi;
+
+    public bool IsComplete { get
+        {
+            return isComplete;
+        } }
 
     public delegate void CompleteCallback();
     public delegate void UpdateCallback();
@@ -69,7 +80,7 @@ public class Objective
     private void checkTarget(GameObject target)
     {
 
-        if (target == this.target)
+        if (this.target == null || target == this.target)
         {
             Increase(1);
             return;
@@ -95,17 +106,14 @@ public class Objective
         objCompleteCallback.Add(callback);
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
-        string text = description;
-      
-        if( type == ObjectiveType.InfectAmount) { 
-                text += "<color=gray>" + counter.ToString() + "<color>/" + goal;
-        }
+        string text = "<color=grey>" + counter.ToString() + "</color>/" + goal;
+
 
         if (isComplete)
         {
-            text = "<olor=green>" + text + "</color>";
+            text = "<color=green>" + counter.ToString() + "/" + goal+ "</color>";
         }
 
         textUi.text = text;

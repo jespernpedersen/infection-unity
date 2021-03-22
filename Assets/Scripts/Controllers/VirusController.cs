@@ -7,6 +7,7 @@ public class VirusController : MonoBehaviour
     public float points;
     public float growth;
     public float infectCount;
+    public float surfaceLifespan = 10f;
     public List<Mutation> MutationsList = new List<Mutation>(0); 
 
     // Start is called before the first frame update

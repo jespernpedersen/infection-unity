@@ -9,6 +9,8 @@ public class SceneSingleton : MonoBehaviour
     public CanvasController canvas;
     public VirusController virus;
     public TraitsList traitsList = new TraitsList();
+    public MutationsList mutationsList = new MutationsList();
+    public UpgradesList upgradesList = new UpgradesList();
 
     // Start is called before the first frame update
     void Awake()

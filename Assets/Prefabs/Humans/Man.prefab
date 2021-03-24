@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -754856099
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 7811464842749272705, guid: d50048a73cb721a478e28ac34314c450, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 3
-  traitPrefab: {fileID: 6782285133792367140, guid: ffc17aed5b37f4b459d72a3b85f23884, type: 3}
+  traitUi: {fileID: 6782285133792367140, guid: ffc17aed5b37f4b459d72a3b85f23884, type: 3}
   routine: []
   HumanName: 
   traits: 

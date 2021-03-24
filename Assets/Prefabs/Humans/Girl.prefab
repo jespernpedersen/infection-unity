@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSpeed: 2
-  traitPrefab: {fileID: 6782285133792367140, guid: ffc17aed5b37f4b459d72a3b85f23884, type: 3}
+  traitUi: {fileID: 6782285133792367140, guid: ffc17aed5b37f4b459d72a3b85f23884, type: 3}
   routine: []
   HumanName: Jenny  Deer
   traits: 

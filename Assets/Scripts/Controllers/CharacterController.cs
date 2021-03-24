@@ -12,30 +12,42 @@ public class CharacterController : MonoBehaviour, iInfectable
     private Animator animator;
 
     public float walkingSpeed = 3;
-    private bool isInfected = false;
 
-    private bool inAction = false;
+    private bool inAction = false;//prevents actions from playing while this plays
     private CharacterStates state;
+    private Coroutine curAction;
 
     [SerializeField]
-    private GameObject traitPrefab;
+    private GameObject traitUi;
+    [SerializeField]
+    private GameObject particles;
+    [SerializeField]
+    private ParticleSystem coughParticles;
+    [SerializeField]
+    private ParticleSystem sneezeParticles;
 
     [SerializeField]
     private List<Action> routine = new List<Action>();
-    private int curAction = -1;
+    private int curActionIndex = -1;
 
     [SerializeField]
     private string HumanName = "";
     [SerializeField]
     private List<CharacterTraits> traits = new List<CharacterTraits>();
 
+    [SerializeField]
+    private List<Symptom> symptoms = new List<Symptom>();
+
+
     private GameObject canvas;
 
-    private bool isInfect = false;
-    public bool IsInfected { 
-        get{
+    private bool isInfected = false;
+    public bool IsInfected
+    {
+        get
+        {
             return isInfected;
-        } 
+        }
     }
 
     public float infectionDuration { get; set; }
@@ -57,7 +69,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         Transform traitsGrid = canvas.transform.GetChild(1);
         foreach (CharacterTraits trait in traits)
         {
-            GameObject newTrait = Instantiate(traitPrefab, traitsGrid);
+            GameObject newTrait = Instantiate(traitUi, traitsGrid);
             Trait traitReference = new Trait();
             foreach (Trait traitModel in SceneSingleton.Instance.traitsList.list)
             {
@@ -70,75 +82,93 @@ public class CharacterController : MonoBehaviour, iInfectable
 
             newTrait.GetComponent<Image>().color = traitReference.colour;
             newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
-           
+
         }
 
         ShowInterface(SceneSingleton.Instance.level.TimeSpeed);
         MakeDecision();
-    } 
+    }
 
-    private void MakeDecision()
+    /// <summary>
+    /// Decides what action to play next.
+    /// </summary>
+    /// <param name="increment">Will play the next action in routine if true</param>
+    private void MakeDecision(bool increment = true)
     {
         if (inAction || routine.Count == 0) return;
 
-        ++curAction;
-        if (curAction >= routine.Count) curAction = 0;
+        if (increment)
+        {
+            ++curActionIndex;
+        }
 
-        switch (routine[curAction].action)
+        if (curActionIndex >= routine.Count) curActionIndex = 0;
+
+        switch (routine[curActionIndex].action)
         {
             case CharacterStates.Idle:
-                StartCoroutine(Idle(routine[curAction].duration));
+                curAction = StartCoroutine(Idle(routine[curActionIndex].duration));
                 break;
             case CharacterStates.Move:
 
-                Vector2 pos = routine[curAction].coordenate != null ?
-                    routine[curAction].coordenate :
+                Vector2 pos = routine[curActionIndex].coordenate != null ?
+                    routine[curActionIndex].coordenate :
                     new Vector2(transform.position.x, transform.position.y);
 
-                StartCoroutine(MoveTo(pos));
+                curAction = StartCoroutine(MoveTo(pos));
                 break;
             case CharacterStates.Interact:
-            
-                iInteractable obj = routine[curAction].interactWith != null ? 
-                                        routine[curAction].interactWith.GetComponent(typeof(iInteractable)) as iInteractable
+
+                iInteractable obj = routine[curActionIndex].interactWith != null ?
+                                        routine[curActionIndex].interactWith.GetComponent(typeof(iInteractable)) as iInteractable
                                         : null;
 
-                StartCoroutine(Interact(obj));
+                curAction = StartCoroutine(Interact(obj));
 
+                break;
+            case CharacterStates.Sit:
+                curAction = StartCoroutine(Sit());
+                break;
+            case CharacterStates.Sneeze:
+                curAction = StartCoroutine(Sneeze());
+                break;
+            case CharacterStates.Cough:
+                curAction = StartCoroutine(Cough());
                 break;
             default:
                 break;
         }
-         
+
     }
 
     /// <summary>
     /// Moves the character in one direction
     /// </summary>
-    /// <param name="direction">1 = left; -1 = right</param>
-    private IEnumerator MoveTo(Vector2 point) 
+    /// <param name="direction">1 = right; -1 = left</param>
+    private IEnumerator MoveTo(Vector2 point)
     {
         if (inAction) yield return null;
-        
+
         inAction = true;
         state = CharacterStates.Move;
 
         int direction = transform.position.x < point.x ? 1 : -1;
+        
+        particles.transform.eulerAngles = new Vector3(0, (-90 * direction) + 90, particles.transform.eulerAngles.z); 
 
         sprite.flipX = direction > 0 ? false : true;
         point.y = transform.position.y;
 
         animator.SetBool("doWalk", true);
 
-        while(Vector2.Distance(transform.position, point) > 0.5f)
+        while (Vector2.Distance(transform.position, point) > 0.5f)
         {
-            transform.Translate((transform.right * ( walkingSpeed * direction )) * Time.deltaTime);
+            transform.Translate((transform.right * (walkingSpeed * direction)) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
 
         }
         animator.SetBool("doWalk", false);
 
-        state = CharacterStates.Idle;
         inAction = false;
         MakeDecision();
     }
@@ -153,11 +183,11 @@ public class CharacterController : MonoBehaviour, iInfectable
         if (inAction) yield return null;
 
         state = CharacterStates.Idle;
-
+        Debug.Log(duration + " == " + (Time.time + duration));
         inAction = true;
         yield return new WaitForSeconds(duration);
         inAction = false;
-
+        Debug.Log(Time.time);
         MakeDecision();
     }
 
@@ -187,10 +217,108 @@ public class CharacterController : MonoBehaviour, iInfectable
 
     }
 
+    private IEnumerator Sit()
+    {
+        if (inAction) yield return null;
+
+        Vector2 startingCharacterPos = transform.position;
+        inAction = true;
+        animator.SetBool("doSit", true);
+        transform.position = routine[curActionIndex].coordenate;
+
+        yield return new WaitForSeconds(routine[curActionIndex].duration);
+
+        transform.position = startingCharacterPos;
+        animator.SetBool("doSit", false);
+        inAction = false;
+
+        MakeDecision();
+
+    }
+
+    /// <summary>
+    /// Causes a single sneeze. This halts current animations, that are resumed after the sneeze
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator Sneeze(int intensity = 1)
+    {
+        CharacterStates previousAction = CharacterStates.None;
+        if (inAction)
+        {
+            previousAction = routine[curActionIndex].action;
+            StopCoroutine(curAction);
+        }
+
+        inAction = true;
+
+        yield return new WaitForSeconds(0.3f);
+        animator.SetBool("doSneeze", true);
+        yield return new WaitForSeconds(0.1f);
+
+        animator.SetBool("doSneeze", false);
+        yield return new WaitForSeconds(0.5f);
+
+        inAction = false;
+
+        MakeDecision(previousAction == CharacterStates.None);//replay the interrupted action
+
+    }
+
+    public IEnumerator Cough(int intensity = 1)
+    {
+        CharacterStates previousAction = CharacterStates.None;
+        if (inAction)
+        {
+            StopCoroutine(curAction);
+            previousAction = routine[curActionIndex].action;
+        }
+        else inAction = true;
+
+        intensity = Random.Range(1, intensity);
+
+        for (int i = 0; i < intensity; i++)
+        {
+            animator.SetBool("doSneeze", true);
+            coughParticles.Play();
+            yield return new WaitForSeconds(0.2f);
+            animator.SetBool("doSneeze", false);
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        inAction = false;
+
+        MakeDecision(previousAction == CharacterStates.None);//replay the interrupted action
+    }
+
+    /// <summary>
+    /// Infects the character and adds the symptoms
+    /// </summary>
+    /// <param name="duration"></param>
     public void Infect(float duration = -1)
     {
+        if (isInfected) return;
+
         isInfected = true;
         SceneSingleton.Instance.level.onHumanInfected(gameObject);
+
+        foreach (Mutation mutation in SceneSingleton.Instance.virus.mutations)
+        {
+            if (mutation.type == MutationType.Symptom)
+            {
+                switch (mutation.action)
+                {
+                    case CharacterStates.Cough:
+                        symptoms.Add(new Symptom(mutation, Cough));
+                        break;
+                    case CharacterStates.Sneeze:
+                        symptoms.Add(new Symptom(mutation, Sneeze));
+                        break;
+                    default: break;
+                }
+
+                StartCoroutine(symptoms[symptoms.Count - 1].Wait(this));
+            }
+        }
     }
 
     public IEnumerator Desinfect(float waitBeforeDesinfect = -1)
@@ -207,5 +335,14 @@ public class CharacterController : MonoBehaviour, iInfectable
     {
         bool showCanvas = timeSpeed == 1 ? false : true;
         canvas.SetActive(showCanvas);
+
+        if (isInfected && timeSpeed == 0)
+        {
+            sprite.color = Color.green;
+        } else
+        {
+            sprite.color = Color.white;
+        }
     }
+
 }

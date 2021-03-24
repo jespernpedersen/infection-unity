@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class DoorController : MonoBehaviour, iInteractable, iInfectable
 {
     private Animator animator;
-    [SerializeField]
-    private ParticleSystem infectedParticles;
+    private SpriteRenderer sprite;
 
     private bool isOpen = false;
     [SerializeField]
@@ -24,11 +23,28 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
     {
-        if (isInfected) Infect();
+
+        if (isInfected)
+        {
+            isInfected = false;// to force the infect method to run
+            Infect();
+        }
+    }
+
+    public void ChangeColour(float timeSpeed)
+    {
+        if (timeSpeed == 0)
+        {
+            sprite.color = Color.green;
+            return;
+        }
+
+        sprite.color = Color.white;
     }
 
     public void Interact(iInfectable human = null)
@@ -46,8 +62,10 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
 
     public void Infect(float duration = -1)
     {
+        if (isInfected) return;
+
         isInfected = true;
-        infectedParticles.Play();
+        SceneSingleton.Instance.level.onTimeChange(ChangeColour);
 
         if (duration != -1)
         {
@@ -59,6 +77,5 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
     {
         yield return new WaitForSeconds(infectionDuration);
         isInfected = false;
-        infectedParticles.Stop();
     }
 }

@@ -14,8 +14,37 @@ public class VirusController : MonoBehaviour
     private void Start()
     {
         // make a surface spreadable virus
-        mutations.Add(SceneSingleton.Instance.mutationsList.mutations[0]);
+        mutations.Add(SceneSingleton.Instance.mutationsList.mutations[1]);
         mutations.Add(SceneSingleton.Instance.mutationsList.mutations[2]);
     }
 
+    public Mutation FindMutation(string name)
+    {
+        Mutation result = new Mutation();
+        foreach(Mutation mutation in mutations)
+        {
+            if(mutation.name == name)
+            {
+                result = mutation;
+                break;
+            }
+        }
+
+        return result;
+    }
+
+    public Mutation FindMutation(int id)
+    {
+        Mutation result = new Mutation();
+        foreach (Mutation mutation in mutations)
+        {
+            if (mutation.id == id)
+            {
+                result = mutation;
+                break;
+            }
+        }
+
+        return result;
+    }
 }

@@ -25,7 +25,9 @@ public class Mutation
     /// </summary>
     public int[] dependencies;
 
-    public Mutation() {}
+    public Mutation() {
+        id = -1;
+    }
 
     public Mutation(int id, MutationType type, string name, string description, float duration)
     {

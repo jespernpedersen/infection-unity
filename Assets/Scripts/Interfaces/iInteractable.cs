@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface iInteractable 
 {
-    public void Interact(iInfectable trigger = null);
+    public Interactable objectType { get; }
+    public bool Interact(iInfectable trigger = null);
 
 }

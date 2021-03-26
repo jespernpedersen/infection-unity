@@ -4,14 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class CharacterController : MonoBehaviour, iInfectable
 {
 
     private SpriteRenderer sprite;
     private Animator animator;
+    private Rigidbody2D rg;
 
     public float walkingSpeed = 3;
+    private Vector3 moveToTarget;
 
     private bool inAction = false;//prevents actions from playing while this plays
     private CharacterStates state;
@@ -34,10 +37,9 @@ public class CharacterController : MonoBehaviour, iInfectable
     private string HumanName = "";
     [SerializeField]
     private List<CharacterTraits> traits = new List<CharacterTraits>();
-
     [SerializeField]
     private List<Symptom> symptoms = new List<Symptom>();
-
+    
 
     private GameObject canvas;
 
@@ -56,6 +58,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
         animator = gameObject.GetComponent<Animator>();
+        rg = gameObject.GetComponent<Rigidbody2D>();
         canvas = transform.GetChild(0).gameObject;
 
     }
@@ -89,6 +92,29 @@ public class CharacterController : MonoBehaviour, iInfectable
         MakeDecision();
     }
 
+    private void FixedUpdate()
+    {
+        if(state == CharacterStates.Move)
+        {
+
+            moveToTarget.y = transform.position.y;
+            if (Vector2.Distance(transform.position, moveToTarget) > 0.5f)
+            {
+                int direction = transform.position.x < moveToTarget.x ? 1 : -1;
+                rg.MovePosition(transform.position + (transform.right * (walkingSpeed * direction) * Time.deltaTime));
+                return;
+            }
+
+            moveToTarget = Vector3.zero;
+            animator.SetBool("doWalk", false);
+
+            state = CharacterStates.Idle;
+
+            inAction = false;
+            MakeDecision();
+        }
+    }
+
     /// <summary>
     /// Decides what action to play next.
     /// </summary>
@@ -115,16 +141,10 @@ public class CharacterController : MonoBehaviour, iInfectable
                     routine[curActionIndex].coordenate :
                     new Vector2(transform.position.x, transform.position.y);
 
-                curAction = StartCoroutine(MoveTo(pos));
+                MoveTo(pos);
                 break;
             case CharacterStates.Interact:
-
-                iInteractable obj = routine[curActionIndex].interactWith != null ?
-                                        routine[curActionIndex].interactWith.GetComponent(typeof(iInteractable)) as iInteractable
-                                        : null;
-
-                curAction = StartCoroutine(Interact(obj));
-
+                curAction = StartCoroutine(Interact(routine[curActionIndex].interactWith.transform));
                 break;
             case CharacterStates.Sit:
                 curAction = StartCoroutine(Sit());
@@ -145,32 +165,23 @@ public class CharacterController : MonoBehaviour, iInfectable
     /// Moves the character in one direction
     /// </summary>
     /// <param name="direction">1 = right; -1 = left</param>
-    private IEnumerator MoveTo(Vector2 point)
+    private void MoveTo(Vector2 point)
     {
-        if (inAction) yield return null;
+        if (inAction) return;
 
         inAction = true;
         state = CharacterStates.Move;
+        moveToTarget = point;
 
         int direction = transform.position.x < point.x ? 1 : -1;
-        
-        particles.transform.eulerAngles = new Vector3(0, (-90 * direction) + 90, particles.transform.eulerAngles.z); 
+
+        particles.transform.eulerAngles = new Vector3(0, (-90 * direction) + 90, particles.transform.eulerAngles.z);
 
         sprite.flipX = direction > 0 ? false : true;
         point.y = transform.position.y;
 
         animator.SetBool("doWalk", true);
 
-        while (Vector2.Distance(transform.position, point) > 0.5f)
-        {
-            transform.Translate((transform.right * (walkingSpeed * direction)) * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-
-        }
-        animator.SetBool("doWalk", false);
-
-        inAction = false;
-        MakeDecision();
     }
 
     /// <summary>
@@ -183,15 +194,21 @@ public class CharacterController : MonoBehaviour, iInfectable
         if (inAction) yield return null;
 
         state = CharacterStates.Idle;
-        Debug.Log(duration + " == " + (Time.time + duration));
+
         inAction = true;
         yield return new WaitForSeconds(duration);
         inAction = false;
-        Debug.Log(Time.time);
+
         MakeDecision();
     }
 
-    private IEnumerator Interact(iInteractable objToInteract = null)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="objToInteract">Object to interact with</param>
+    /// <param name="executeNextBehaviour">true= play next routine action; false = repeat current action</param>
+    /// <returns></returns>
+    private IEnumerator Interact(Transform objToInteract = null, bool executeNextBehaviour = false)
     {
         if (inAction) yield return null;
 
@@ -207,13 +224,23 @@ public class CharacterController : MonoBehaviour, iInfectable
 
         if (objToInteract != null)
         {
-            objToInteract.Interact(this);
+            iInteractable interactable = objToInteract.GetComponent(typeof(iInteractable)) as iInteractable;
+            interactable.Interact(this);
+
+            Mutation mutation = SceneSingleton.Instance.virus.FindMutation(1);
+
+            // if the virus spreads by touch
+            if (isInfected && mutation.id != -1)
+            {
+                iInfectable infectable = objToInteract.GetComponent(typeof(iInfectable)) as iInfectable;
+                infectable.Infect(mutation.duration);
+            }
         }
 
         inAction = false;
         animator.SetBool("doInteract", false);
 
-        MakeDecision();
+        MakeDecision(executeNextBehaviour);
 
     }
 
@@ -221,16 +248,22 @@ public class CharacterController : MonoBehaviour, iInfectable
     {
         if (inAction) yield return null;
 
-        Vector2 startingCharacterPos = transform.position;
-        inAction = true;
-        animator.SetBool("doSit", true);
-        transform.position = routine[curActionIndex].coordenate;
+        routine[curActionIndex].coordenate.y = transform.position.y;
+        if (Vector2.Distance(transform.position, routine[curActionIndex].coordenate) < 0.5f)
+        {
+            state = CharacterStates.Sit;
 
-        yield return new WaitForSeconds(routine[curActionIndex].duration);
+            Vector2 startingCharacterPos = transform.position;
+            inAction = true;
+            animator.SetBool("doSit", true);
+            transform.position = routine[curActionIndex].coordenate;
 
-        transform.position = startingCharacterPos;
-        animator.SetBool("doSit", false);
-        inAction = false;
+            yield return new WaitForSeconds(routine[curActionIndex].duration);
+
+            transform.position = startingCharacterPos;
+            animator.SetBool("doSit", false);
+            inAction = false;
+        }
 
         MakeDecision();
 
@@ -248,6 +281,8 @@ public class CharacterController : MonoBehaviour, iInfectable
             previousAction = routine[curActionIndex].action;
             StopCoroutine(curAction);
         }
+
+        state = CharacterStates.Sneeze;
 
         inAction = true;
 
@@ -274,7 +309,12 @@ public class CharacterController : MonoBehaviour, iInfectable
         }
         else inAction = true;
 
+        state = CharacterStates.Cough;
+
         intensity = Random.Range(1, intensity);
+
+        float duration = SceneSingleton.Instance.virus.FindMutation(1).duration;//dropled based transmition mutation
+        float range = SceneSingleton.Instance.virus.FindMutation(2).range;// cough symtom mutation
 
         for (int i = 0; i < intensity; i++)
         {
@@ -283,6 +323,27 @@ public class CharacterController : MonoBehaviour, iInfectable
             yield return new WaitForSeconds(0.2f);
             animator.SetBool("doSneeze", false);
             yield return new WaitForSeconds(0.2f);
+        }
+
+        if (traits.Contains(CharacterTraits.FreeCogher))
+        {
+            Collider2D[] allOverlappingColliders = Physics2D.OverlapCircleAll(transform.position, range / 2);
+
+            foreach (Collider2D col in allOverlappingColliders)
+            {
+                iInfectable infetable = col.transform.GetComponent(typeof(iInfectable)) as iInfectable;
+
+                if (infetable == null) continue;
+
+                //if the character is facing right and the object is in front of it
+                //or if the character is facing left and the object is in front of it
+                if (sprite.flipX == false && col.transform.position.x > transform.position.x ||
+                    sprite.flipX == true && col.transform.position.x < transform.position.x)
+                {
+                    infetable.Infect(duration);
+                }
+
+            }
         }
 
         inAction = false;
@@ -339,9 +400,31 @@ public class CharacterController : MonoBehaviour, iInfectable
         if (isInfected && timeSpeed == 0)
         {
             sprite.color = Color.green;
-        } else
+        }
+        else
         {
             sprite.color = Color.white;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (state != CharacterStates.Move) return;
+
+        iInteractable interactable = collision.transform.GetComponent(typeof(iInteractable)) as iInteractable;
+
+        StopAllCoroutines();
+        inAction = false;
+
+        if (interactable.objectType == Interactable.Door && !collision.transform.GetComponent<DoorController>().IsOpen)
+        {
+            // stop all animations
+            foreach(AnimatorControllerParameter parameter in animator.parameters)
+            {
+                animator.SetBool(parameter.name, false);
+            }
+
+            StartCoroutine(Interact(collision.transform, collision.transform.GetComponent<DoorController>().IsLocked));
         }
     }
 

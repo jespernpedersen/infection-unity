@@ -68,7 +68,6 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
 
     private void OnMouseOver()
     {
-        Debug.Log("Mouse down detected");
         sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
     }
     private void OnMouseExit()

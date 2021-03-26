@@ -28,6 +28,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     private ParticleSystem coughParticles;
     [SerializeField]
     private ParticleSystem sneezeParticles;
+    private GameObject airbornCloud;
 
     [SerializeField]
     private List<Action> routine = new List<Action>();
@@ -280,18 +281,32 @@ public class CharacterController : MonoBehaviour, iInfectable
         {
             previousAction = routine[curActionIndex].action;
             StopCoroutine(curAction);
-        }
 
-        state = CharacterStates.Sneeze;
+        }
 
         inAction = true;
 
-        yield return new WaitForSeconds(0.3f);
-        animator.SetBool("doSneeze", true);
-        yield return new WaitForSeconds(0.1f);
+        state = CharacterStates.Sneeze;
 
-        animator.SetBool("doSneeze", false);
-        yield return new WaitForSeconds(0.5f);
+        intensity = Random.Range(1, intensity);
+
+        float duration = SceneSingleton.Instance.virus.FindMutation(0).duration;//airborne transmition mutation
+        float range = SceneSingleton.Instance.virus.GetMutationByState(CharacterStates.Sneeze).range;// snee symtom mutation
+
+        for (int i = 0; i < intensity; i++)
+        {
+            yield return new WaitForSeconds(0.3f);
+            animator.SetBool("doSneeze", true);
+            yield return new WaitForSeconds(0.1f);
+            sneezeParticles.Play();
+
+            int direction = sprite.flipX ? -1 : 1;
+
+            animator.SetBool("doSneeze", false);
+            yield return new WaitForSeconds(0.5f);
+            GameObject cloud = Instantiate(SceneSingleton.Instance.virus.airbornePrefab , new Vector3(transform.position.x, transform.position.y+0.5f, transform.position.z), Quaternion.identity);
+            cloud.GetComponent<Rigidbody2D>().AddForce(Vector2.right * direction * 10);// move the cloud forward, slowly
+        }
 
         inAction = false;
 
@@ -321,29 +336,30 @@ public class CharacterController : MonoBehaviour, iInfectable
             animator.SetBool("doSneeze", true);
             coughParticles.Play();
             yield return new WaitForSeconds(0.2f);
+
+            if (traits.Contains(CharacterTraits.FreeCogher))
+            {
+                Collider2D[] allOverlappingColliders = Physics2D.OverlapCircleAll(transform.position, range / 2);
+
+                foreach (Collider2D col in allOverlappingColliders)
+                {
+                    iInfectable infetable = col.transform.GetComponent(typeof(iInfectable)) as iInfectable;
+
+                    if (infetable == null) continue;
+
+                    //if the character is facing right and the object is in front of it
+                    //or if the character is facing left and the object is in front of it
+                    if (sprite.flipX == false && col.transform.position.x > transform.position.x ||
+                        sprite.flipX == true && col.transform.position.x < transform.position.x)
+                    {
+                        infetable.Infect(duration);
+                    }
+
+                }
+            }
+
             animator.SetBool("doSneeze", false);
             yield return new WaitForSeconds(0.2f);
-        }
-
-        if (traits.Contains(CharacterTraits.FreeCogher))
-        {
-            Collider2D[] allOverlappingColliders = Physics2D.OverlapCircleAll(transform.position, range / 2);
-
-            foreach (Collider2D col in allOverlappingColliders)
-            {
-                iInfectable infetable = col.transform.GetComponent(typeof(iInfectable)) as iInfectable;
-
-                if (infetable == null) continue;
-
-                //if the character is facing right and the object is in front of it
-                //or if the character is facing left and the object is in front of it
-                if (sprite.flipX == false && col.transform.position.x > transform.position.x ||
-                    sprite.flipX == true && col.transform.position.x < transform.position.x)
-                {
-                    infetable.Infect(duration);
-                }
-
-            }
         }
 
         inAction = false;

@@ -9,12 +9,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Characters
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Walls
+  - Airborne
+  - Humans
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 3540111197
+    locked: 0
+  - name: New Layer
+    uniqueID: 642600321
     locked: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1765731799002997253}
   - component: {fileID: 1765731799002997252}
   - component: {fileID: 1765731799002997254}
+  - component: {fileID: 2130721108}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -44,6 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273ae1d2d91e1534ea8316602e3b3458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainObjectives:
+  - type: 1
+    description: Infect Jonh
+    goal: 1
+    target: {fileID: 0}
+    textUi: {fileID: 0}
 --- !u!114 &1765731799002997254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,3 +65,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 1765731799002997252}
   canvas: {fileID: 0}
+  virus: {fileID: 2130721108}
+  traitsList:
+    list: []
+--- !u!114 &2130721108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765731799002997251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3cc68dc7b3d78499e4b3b4fc0905cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 0
+  growth: 0
+  infectCount: 0
+  surfaceLifespan: 10
+  MutationsList: []

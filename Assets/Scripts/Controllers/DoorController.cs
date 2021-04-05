@@ -86,15 +86,18 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
         sprite.color = new Color(255, 255, 255, sprite.color.a);
     }
 
-    public bool Interact(iInfectable human = null)
+    public bool Interact(CharacterController human = null)
     {
         //the door is infected and the thing that interacted with the door is infectable
         if (isInfected && human != null)
         {
-            human.Infect();
+            // germophobes can't be infected by touching infected surfaces
+            if (!human.Traits.Contains(CharacterTraits.Germophobic)){
+                human.Infect();
+            }
         }
 
-        if (isLocked) return false; 
+        if (isLocked) return false;
 
         isOpen = !isOpen;
         animator.SetBool("isOpen", isOpen);

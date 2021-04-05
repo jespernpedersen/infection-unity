@@ -5,6 +5,6 @@ using UnityEngine;
 public interface iInteractable 
 {
     public Interactable objectType { get; }
-    public bool Interact(iInfectable trigger = null);
+    public bool Interact(CharacterController trigger = null);
 
 }

@@ -14,12 +14,16 @@ public class CharacterController : MonoBehaviour, iInfectable
     private Rigidbody2D rg;
 
     public float walkingSpeed = 3;
+    private float spreadDistanceTalk = 2f;
     private Vector3 moveToTarget;
 
+    private bool isTalking = false;
     private bool inAction = false;//prevents actions from playing while this plays
     private CharacterStates state;
     private Coroutine curAction;
 
+    [SerializeField]
+    private Text nameUi;
     [SerializeField]
     private GameObject traitUi;
     [SerializeField]
@@ -29,6 +33,8 @@ public class CharacterController : MonoBehaviour, iInfectable
     [SerializeField]
     private ParticleSystem sneezeParticles;
     private GameObject airbornCloud;
+    [SerializeField]
+    private GameObject speechBallon;
 
     [SerializeField]
     private List<Action> routine = new List<Action>();
@@ -40,7 +46,16 @@ public class CharacterController : MonoBehaviour, iInfectable
     private List<CharacterTraits> traits = new List<CharacterTraits>();
     [SerializeField]
     private List<Symptom> symptoms = new List<Symptom>();
-    
+
+    public List<CharacterTraits> Traits
+    {
+        get
+        {
+            return traits;
+        }
+    }
+
+
 
     private GameObject canvas;
 
@@ -61,6 +76,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         animator = gameObject.GetComponent<Animator>();
         rg = gameObject.GetComponent<Rigidbody2D>();
         canvas = transform.GetChild(0).gameObject;
+        nameUi.text = name;
 
     }
 
@@ -156,6 +172,10 @@ public class CharacterController : MonoBehaviour, iInfectable
             case CharacterStates.Cough:
                 curAction = StartCoroutine(Cough());
                 break;
+            case CharacterStates.Talk:
+                state = CharacterStates.Talk;//this is set here because it should only be considered a state when is part of the routine. Spontanious and simultanious actions won't count as current state/activity
+                curAction = StartCoroutine(Talk(routine[curActionIndex].duration, routine[curActionIndex].interactWith));
+                break;
             default:
                 break;
         }
@@ -192,7 +212,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     /// <returns></returns>
     private IEnumerator Idle(float duration = 0)
     {
-        if (inAction) yield return null;
+        if (inAction) yield break;
 
         state = CharacterStates.Idle;
 
@@ -211,7 +231,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     /// <returns></returns>
     private IEnumerator Interact(Transform objToInteract = null, bool executeNextBehaviour = false)
     {
-        if (inAction) yield return null;
+        if (inAction) yield break;
 
         inAction = true;
         animator.SetBool("doInteract", true);
@@ -231,7 +251,7 @@ public class CharacterController : MonoBehaviour, iInfectable
             Mutation mutation = SceneSingleton.Instance.virus.FindMutation(1);
 
             // if the virus spreads by touch
-            if (isInfected && mutation.id != -1)
+            if (isInfected && mutation.id != -1 && !traits.Contains(CharacterTraits.Germophobic))
             {
                 iInfectable infectable = objToInteract.GetComponent(typeof(iInfectable)) as iInfectable;
                 infectable.Infect(mutation.duration);
@@ -247,7 +267,7 @@ public class CharacterController : MonoBehaviour, iInfectable
 
     private IEnumerator Sit()
     {
-        if (inAction) yield return null;
+        if (inAction) yield break;
 
         routine[curActionIndex].coordenate.y = transform.position.y;
         if (Vector2.Distance(transform.position, routine[curActionIndex].coordenate) < 0.5f)
@@ -368,6 +388,67 @@ public class CharacterController : MonoBehaviour, iInfectable
     }
 
     /// <summary>
+    /// Makes a character talk with other character. This action can happen simultaniously with actions other than cough or sneeze
+    /// </summary>
+    /// <param name="duration">Duration of conversation</param>
+    /// <returns></returns>
+    public IEnumerator Talk(float duration, GameObject target = null)
+    {
+
+        // if the character is anti-social, abort action
+        if(traits.Contains(CharacterTraits.AntiSocial))
+        {
+            if (state == CharacterStates.Talk) MakeDecision();
+
+            yield break;
+        }
+
+        if (inAction && (state == CharacterStates.Cough || state == CharacterStates.Sneeze))
+        {
+            yield break;
+        }
+
+        isTalking = true;
+        speechBallon.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        speechBallon.SetActive(false);
+        isTalking = false;
+
+        if (isInfected)
+        {
+            float range = (traits.Contains(CharacterTraits.Spitter)) ? spreadDistanceTalk * 2 : spreadDistanceTalk;
+            Collider2D[] allOverlappingColliders = Physics2D.OverlapCircleAll(transform.position, range);
+
+            foreach (Collider2D col in allOverlappingColliders)
+            {
+                iInfectable infetable = col.transform.GetComponent(typeof(iInfectable)) as iInfectable;
+
+                if (infetable == null) continue;
+
+                //if the character is facing right and the object is in front of it
+                //or if the character is facing left and the object is in front of it
+                if (sprite.flipX == false && col.transform.position.x > transform.position.x ||
+                    sprite.flipX == true && col.transform.position.x < transform.position.x)
+                {
+                    infetable.Infect(duration);
+                }
+
+            }
+        }
+
+        if (target != null)
+            target.SendMessage("AnswerConversation");
+
+        if (state == CharacterStates.Talk) MakeDecision();
+
+    }
+
+    public void AnswerConversation()
+    {
+        StartCoroutine(Talk(1f));
+    }
+
+    /// <summary>
     /// Infects the character and adds the symptoms
     /// </summary>
     /// <param name="duration"></param>
@@ -442,6 +523,21 @@ public class CharacterController : MonoBehaviour, iInfectable
 
             StartCoroutine(Interact(collision.transform, collision.transform.GetComponent<DoorController>().IsLocked));
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CharacterController person = collision.transform.GetComponent<CharacterController>();
+
+        if (person == null || !traits.Contains(CharacterTraits.Social)) return;
+
+        // if the person is in front of this human, speak to it
+        if(!sprite.flipX && person.transform.position.x > transform.position.x ||
+            sprite.flipX && person.transform.position.x < transform.position.x)
+        {
+            StartCoroutine(Talk(2f, person.gameObject));
+        }
+
     }
 
 }

@@ -2,14 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class DoorController : MonoBehaviour, iInteractable, iInfectable
 {
     private Animator animator;
-    [SerializeField]
-    private ParticleSystem infectedParticles;
+    private SpriteRenderer sprite;
+    private BoxCollider2D boxCollider;
+    public Interactable objectType { get; }
 
     private bool isOpen = false;
+    [SerializeField]
+    private bool isLocked = false;
+    public bool IsOpen
+    {
+        get
+        {
+            return isOpen;
+        }
+    }
+    public bool IsLocked
+    {
+        get
+        {
+            return isLocked;
+        }
+    }
     [SerializeField]
     private bool isInfected = false;
     public bool IsInfected
@@ -20,34 +38,80 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
         }
     }
 
+
+
     // Start is called before the first frame update
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponents<BoxCollider2D>()[1];
     }
 
     private void Start()
     {
-        if (isInfected) Infect();
+
+        if (isInfected)
+        {
+            isInfected = false;// to force the infect method to run
+            Infect();
+        }
     }
 
-    public void Interact(iInfectable human = null)
+    /// <summary>
+    /// Allows the player to interact with the object on mouse click
+    /// </summary>
+    private void OnMouseDown()
     {
-        isOpen = !isOpen;
-        animator.SetBool("isOpen", isOpen);
+        Interact();
+    }
 
+    private void OnMouseOver()
+    {
+        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0.5f);
+    }
+    private void OnMouseExit()
+    {
+        sprite.color = new Color(sprite.color.r, sprite.color.g, 1);
+    }
+
+    public void ChangeColour(float timeSpeed)
+    {
+        if (timeSpeed == 0 && isInfected)
+        {
+            sprite.color = new Color(0, 255, 0, sprite.color.a);
+            return;
+        }
+
+        sprite.color = new Color(255, 255, 255, sprite.color.a);
+    }
+
+    public bool Interact(CharacterController human = null)
+    {
         //the door is infected and the thing that interacted with the door is infectable
         if (isInfected && human != null)
         {
-            human.Infect();
+            // germophobes can't be infected by touching infected surfaces
+            if (!human.Traits.Contains(CharacterTraits.Germophobic)){
+                human.Infect();
+            }
         }
-      
+
+        if (isLocked) return false;
+
+        isOpen = !isOpen;
+        animator.SetBool("isOpen", isOpen);
+        boxCollider.enabled = !isOpen;
+
+        return true;
     }
 
     public void Infect(float duration = -1)
     {
+        if (isInfected) return;
+
         isInfected = true;
-        infectedParticles.Play();
+        SceneSingleton.Instance.level.onTimeChange(ChangeColour);
 
         if (duration != -1)
         {
@@ -59,6 +123,5 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
     {
         yield return new WaitForSeconds(infectionDuration);
         isInfected = false;
-        infectedParticles.Stop();
     }
 }

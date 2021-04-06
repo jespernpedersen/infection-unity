@@ -1,0 +1,1152 @@
+fileFormatVersion: 2
+guid: 39af9efd28a962343ab3cdd83dc0e8bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1086731499684283268
+    second: BackgroundAlligned-01_0
+  - first:
+      213: 8107468456807428175
+    second: BackgroundAlligned-01_1
+  - first:
+      213: 7951356385264844465
+    second: BackgroundAlligned-01_2
+  - first:
+      213: -759814888667049368
+    second: BackgroundAlligned-01_3
+  - first:
+      213: -8527524026589476934
+    second: BackgroundAlligned-01_4
+  - first:
+      213: -2941129469437161590
+    second: BackgroundAlligned-01_5
+  - first:
+      213: -2180703820705522343
+    second: BackgroundAlligned-01_6
+  - first:
+      213: 3738029097154276694
+    second: BackgroundAlligned-01_7
+  - first:
+      213: -7903827330010610903
+    second: BackgroundAlligned-01_8
+  - first:
+      213: -2057318677584803651
+    second: BackgroundAlligned-01_9
+  - first:
+      213: -5598325184470214028
+    second: BackgroundAlligned-01_10
+  - first:
+      213: -2771175600378397951
+    second: BackgroundAlligned-01_11
+  - first:
+      213: 2959379102035619103
+    second: BackgroundAlligned-01_12
+  - first:
+      213: 4139851786265834574
+    second: BackgroundAlligned-01_13
+  - first:
+      213: -8704358449510807589
+    second: BackgroundAlligned-01_14
+  - first:
+      213: -994643666560383057
+    second: BackgroundAlligned-01_15
+  - first:
+      213: 8321218840620332990
+    second: BackgroundAlligned-01_16
+  - first:
+      213: -6127803312412469755
+    second: BackgroundAlligned-01_17
+  - first:
+      213: 7357916351120374330
+    second: BackgroundAlligned-01_18
+  - first:
+      213: 2606017667093686335
+    second: BackgroundAlligned-01_19
+  - first:
+      213: 8495948394100363439
+    second: BackgroundAlligned-01_20
+  - first:
+      213: -5336252768520329356
+    second: BackgroundAlligned-01_21
+  - first:
+      213: 6849891358062561599
+    second: BackgroundAlligned-01_22
+  - first:
+      213: 4964883193578012589
+    second: BackgroundAlligned-01_23
+  - first:
+      213: -2526947921690951572
+    second: BackgroundAlligned-01_24
+  - first:
+      213: -231110781894203253
+    second: BackgroundAlligned-01_25
+  - first:
+      213: 5332368907086015224
+    second: BackgroundAlligned-01_26
+  - first:
+      213: 5748955412358908342
+    second: BackgroundAlligned-01_27
+  - first:
+      213: -2680329770146487505
+    second: BackgroundAlligned-01_28
+  - first:
+      213: 7979450056685519117
+    second: BackgroundAlligned-01_29
+  - first:
+      213: -7315799166183469489
+    second: BackgroundAlligned-01_30
+  - first:
+      213: 8826129200252175092
+    second: BackgroundAlligned-01_31
+  - first:
+      213: 2877634117363230415
+    second: BackgroundAlligned-01_32
+  - first:
+      213: 7739749084200555544
+    second: BackgroundAlligned-01_33
+  - first:
+      213: 5838775164011713980
+    second: BackgroundAlligned-01_34
+  - first:
+      213: -7485875515118223771
+    second: BackgroundAlligned-01_35
+  - first:
+      213: -6418892275055439542
+    second: BackgroundAlligned-01_36
+  - first:
+      213: 5469561676089545459
+    second: BackgroundAlligned-01_37
+  - first:
+      213: -7608949453109984708
+    second: BackgroundAlligned-01_38
+  - first:
+      213: -6167277333667168372
+    second: BackgroundAlligned-01_39
+  - first:
+      213: 539202971595367861
+    second: BackgroundAlligned-01_40
+  - first:
+      213: 456938957085108414
+    second: BackgroundAlligned-01_41
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 130
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1850
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c371375772be0f0800000000000000
+      internalID: -1086731499684283268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_1
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1850
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40f0b33b93838070800000000000000
+      internalID: 8107468456807428175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_2
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1850
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bebe3a1184e85e60800000000000000
+      internalID: 7951356385264844465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_3
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1850
+        width: 259
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86292f962689475f0800000000000000
+      internalID: -759814888667049368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_4
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 1850
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab7868d141628a980800000000000000
+      internalID: -8527524026589476934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_5
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 1850
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8fc3cf84520f27d0800000000000000
+      internalID: -2941129469437161590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_6
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 1850
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d928ecd659cb1e0800000000000000
+      internalID: -2180703820705522343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_7
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 1850
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d64ffa8a520e330800000000000000
+      internalID: 3738029097154276694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1588
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92381bc6be6ff4290800000000000000
+      internalID: -7903827330010610903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_9
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1588
+        width: 262
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db808c8109fe273e0800000000000000
+      internalID: -2057318677584803651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_10
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1588
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47a978ae7e0ce42b0800000000000000
+      internalID: -5598325184470214028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_11
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1588
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b3739497eca89d0800000000000000
+      internalID: -2771175600378397951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_12
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 1588
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1d2c842d93d11920800000000000000
+      internalID: 2959379102035619103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_13
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 1588
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4434270445b37930800000000000000
+      internalID: 4139851786265834574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_14
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 1588
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd70d3b9b18e33780800000000000000
+      internalID: -8704358449510807589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_15
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 1588
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa78398ead05232f0800000000000000
+      internalID: -994643666560383057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1326
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb77675a278ea7370800000000000000
+      internalID: 8321218840620332990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_17
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1326
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50651369a5ba5faa0800000000000000
+      internalID: -6127803312412469755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_18
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1326
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a719bffe19c1660800000000000000
+      internalID: 7357916351120374330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_19
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1326
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38e28dc24f6a2420800000000000000
+      internalID: 2606017667093686335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_20
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 1326
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0176c0d0ca7e570800000000000000
+      internalID: 8495948394100363439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_21
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 1326
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477a6a43162d1f5b0800000000000000
+      internalID: -5336252768520329356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_22
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 1326
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39465bd5e3bf0f50800000000000000
+      internalID: 6849891358062561599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_23
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 1326
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf3680a5fec6e440800000000000000
+      internalID: 4964883193578012589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1064
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6003b9e04a7eecd0800000000000000
+      internalID: -2526947921690951572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_25
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1064
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b88ee65e7fdeaccf0800000000000000
+      internalID: -231110781894203253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_26
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1064
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa2336d441600a40800000000000000
+      internalID: 5332368907086015224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_27
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1064
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b9463ffc7468cf40800000000000000
+      internalID: 5748955412358908342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_28
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 1064
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23a389664e8dcad0800000000000000
+      internalID: -2680329770146487505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_29
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 1064
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0106b3bc83bcbe60800000000000000
+      internalID: 7979450056685519117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_30
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 1064
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e098b4b6f097a90800000000000000
+      internalID: -7315799166183469489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_31
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 1064
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f2cbbaaeb5bc7a70800000000000000
+      internalID: 8826129200252175092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 802
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc6eafebbf86fe720800000000000000
+      internalID: 2877634117363230415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_33
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 802
+        width: 261
+        height: 262
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
+      border: {x: 1, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 814dd6ef8cc196b60800000000000000
+      internalID: 7739749084200555544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_34
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 802
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb59a46931f770150800000000000000
+      internalID: 5838775164011713980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_35
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 802
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e759081e3dc1890800000000000000
+      internalID: -7485875515118223771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_36
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 802
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4152dd0c738be6a0800000000000000
+      internalID: -6418892275055439542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_37
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 802
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2586c8d59c7eb40800000000000000
+      internalID: 5469561676089545459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_38
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 802
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c320a7d49c4976690800000000000000
+      internalID: -7608949453109984708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_39
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 802
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f337fc0fd696aa0800000000000000
+      internalID: -6167277333667168372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_40
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 540
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5e6cfee32ab7700800000000000000
+      internalID: 539202971595367861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackgroundAlligned-01_41
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 540
+        width: 261
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb8681d7f8f575600800000000000000
+      internalID: 456938957085108414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

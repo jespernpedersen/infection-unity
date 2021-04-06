@@ -4,9 +4,13 @@ using UnityEngine;
 
 public enum CharacterStates
 {
+    None,
     Idle,
     Move,
     Interact,
     Sit,
-    Cough
+    Cough,
+    Sneeze,
+    Talk,
+
 }

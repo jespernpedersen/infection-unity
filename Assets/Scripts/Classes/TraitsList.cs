@@ -17,4 +17,19 @@ public class TraitsList
         list.Add(new Trait(CharacterTraits.Social, "Social", new Color(0, 192, 0, 0.3f)));
         list.Add(new Trait(CharacterTraits.Spitter, "Spitter", new Color(0, 192, 0, 0.3f)));
     }
+
+    /// <summary>
+    /// Finds a trait by it's trait type
+    /// </summary>
+    /// <param name="key">The trait</param>
+    /// <returns>Trait object, if not found returns an empty trait object</returns>
+    public Trait GetTrait(CharacterTraits key)
+    {
+        foreach (Trait trait in list)
+        {
+            if (trait.trait == key) return trait;
+        }
+
+        return new Trait();
+    }
 }

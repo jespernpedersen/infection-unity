@@ -3806,17 +3806,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1209437318720784325, guid: 0e5071a9452b93f4fba86721e64db60d, type: 3}
   m_PrefabInstance: {fileID: 1028897728}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1277589472 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1209437318720784379, guid: 0e5071a9452b93f4fba86721e64db60d, type: 3}
-  m_PrefabInstance: {fileID: 1028897728}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277589467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4daab0ed2992d4a91f5008b5023e63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1309934957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5195,11 +5184,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984364432}
   m_CullTransparentMesh: 1
---- !u!1 &2016137712 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7901621160110281315, guid: a71b88a16189af7418952f8baa5274d2, type: 3}
+--- !u!114 &2016137717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7901621160110281309, guid: a71b88a16189af7418952f8baa5274d2, type: 3}
   m_PrefabInstance: {fileID: 1748471668}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4daab0ed2992d4a91f5008b5023e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2141424067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7901621160110281315, guid: a71b88a16189af7418952f8baa5274d2, type: 3}
@@ -5223,7 +5218,7 @@ PrefabInstance:
     - target: {fileID: 942098602304246797, guid: 393edf8c84724554690a3abdc6265ece, type: 3}
       propertyPath: HumanTarget
       value: 
-      objectReference: {fileID: 1277589472}
+      objectReference: {fileID: 2016137717}
     - target: {fileID: 942098602304246799, guid: 393edf8c84724554690a3abdc6265ece, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5296,7 +5291,7 @@ PrefabInstance:
     - target: {fileID: 1765731799002997252, guid: 48c64b4a80fd3a143b8f859f28272871, type: 3}
       propertyPath: mainObjectives.Array.data[0].target
       value: 
-      objectReference: {fileID: 2016137712}
+      objectReference: {fileID: 1277589467}
     - target: {fileID: 1765731799002997253, guid: 48c64b4a80fd3a143b8f859f28272871, type: 3}
       propertyPath: m_RootOrder
       value: 9

@@ -67,7 +67,10 @@ public class DoorController : MonoBehaviour, iInteractable, iInfectable
             Infect();
         }
 
-        if (isOpen) Interact();
+        if (isOpen){
+            isOpen = false;
+            Interact();
+        } 
     }
 
     public bool Interact(CharacterController human = null)

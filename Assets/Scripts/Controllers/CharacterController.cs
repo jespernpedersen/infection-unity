@@ -66,7 +66,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     }
 
     private GameObject canvas;
-
+    [SerializeField]
     private bool isInfected = false;
     public bool IsInfected
     {
@@ -114,6 +114,8 @@ public class CharacterController : MonoBehaviour, iInfectable
             newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
 
         }
+        
+        if(isInfected) Infect();
 
         ShowInterface(SceneSingleton.Instance.level.TimeSpeed);
         MakeDecision();

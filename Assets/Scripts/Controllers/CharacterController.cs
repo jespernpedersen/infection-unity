@@ -94,28 +94,31 @@ public class CharacterController : MonoBehaviour, iInfectable
     void Start()
     {
         //subscribe to onTimeChange
-        SceneSingleton.Instance.level.onTimeChange(ShowInterface);
-
-        Transform traitsGrid = canvas.transform.GetChild(1);
-        foreach (CharacterTraits trait in traits)
+        if (SceneSingleton.Instance != null)
         {
-            GameObject newTrait = Instantiate(traitUi, traitsGrid);
-            Trait traitReference = new Trait();
-            foreach (Trait traitModel in SceneSingleton.Instance.traitsList.list)
+            SceneSingleton.Instance.level.onTimeChange(ShowInterface);
+
+            Transform traitsGrid = canvas.transform.GetChild(1);
+            foreach (CharacterTraits trait in traits)
             {
-                if (traitModel.trait == trait)
+                GameObject newTrait = Instantiate(traitUi, traitsGrid);
+                Trait traitReference = new Trait();
+                foreach (Trait traitModel in SceneSingleton.Instance.traitsList.list)
                 {
-                    traitReference = traitModel;
-                    break;
+                    if (traitModel.trait == trait)
+                    {
+                        traitReference = traitModel;
+                        break;
+                    }
                 }
+
+                newTrait.GetComponent<Image>().color = traitReference.colour;
+                newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
+
             }
 
-            newTrait.GetComponent<Image>().color = traitReference.colour;
-            newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
-
+            ShowInterface(SceneSingleton.Instance.level.TimeSpeed);
         }
-
-        ShowInterface(SceneSingleton.Instance.level.TimeSpeed);
         MakeDecision();
     }
 
@@ -290,13 +293,16 @@ public class CharacterController : MonoBehaviour, iInfectable
             iInteractable interactable = objToInteract.GetComponent(typeof(iInteractable)) as iInteractable;
             interactable.Interact(this);
 
-            Mutation mutation = SceneSingleton.Instance.virus.FindMutation(1);
-
-            // if the virus spreads by touch
-            if (isInfected && mutation.id != -1 && !traits.Contains(CharacterTraits.Germophobic))
+            if (SceneSingleton.Instance != null)
             {
-                iInfectable infectable = objToInteract.GetComponent(typeof(iInfectable)) as iInfectable;
-                infectable.Infect(mutation.duration);
+                Mutation mutation = SceneSingleton.Instance.virus.FindMutation(1);
+
+                // if the virus spreads by touch
+                if (isInfected && mutation.id != -1 && !traits.Contains(CharacterTraits.Germophobic))
+                {
+                    iInfectable infectable = objToInteract.GetComponent(typeof(iInfectable)) as iInfectable;
+                    infectable.Infect(mutation.duration);
+                }
             }
         }
 

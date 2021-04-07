@@ -12,11 +12,18 @@ public class CharacterController : MonoBehaviour, iInfectable
     private SpriteRenderer sprite;
     private Animator animator;
     private Rigidbody2D rg;
+    private AudioSource audioSource;
 
     public float walkingSpeed = 3;
     public float interactionDistance = 1.4f;
     private float spreadDistanceTalk = 2f;
     private Vector3 moveToTarget;
+
+    [SerializeField]
+    private AudioClip talking;
+    [SerializeField]
+    private AudioClip coughingSound;
+    private float audioVolume;
 
     private bool isTalking = false;
     private bool inAction = false;//prevents actions from playing while this plays
@@ -78,6 +85,9 @@ public class CharacterController : MonoBehaviour, iInfectable
         rg = gameObject.GetComponent<Rigidbody2D>();
         canvas = transform.GetChild(0).gameObject;
         nameUi.text = HumanName;
+        audioSource = GetComponent<AudioSource>();
+        audioVolume = audioSource.volume;
+
     }
 
     // Start is called before the first frame update
@@ -93,14 +103,13 @@ public class CharacterController : MonoBehaviour, iInfectable
             Trait traitReference = new Trait();
             foreach (Trait traitModel in SceneSingleton.Instance.traitsList.list)
             {
-                Debug.Log(traitModel.name);
                 if (traitModel.trait == trait)
                 {
                     traitReference = traitModel;
                     break;
                 }
             }
-            Debug.Log(traitReference.name);
+
             newTrait.GetComponent<Image>().color = traitReference.colour;
             newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
 
@@ -253,7 +262,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         {
             previousAction = routine[curActionIndex].action;
             StopCoroutine(curAction);
-
+            stopAllAnimations();
         }
 
         makeDecisionAfterMoving = false;
@@ -318,7 +327,9 @@ public class CharacterController : MonoBehaviour, iInfectable
             yield return new WaitForEndOfFrame();
         }
 
-        if (Vector2.Distance(transform.position, routine[curActionIndex].coordenate) < interactionDistance)
+        stopAllAnimations();
+
+        if (Vector2.Distance(transform.position, routine[curActionIndex].coordenate) <= interactionDistance)
         {
             state = CharacterStates.Sit;
 
@@ -402,8 +413,11 @@ public class CharacterController : MonoBehaviour, iInfectable
         for (int i = 0; i < intensity; i++)
         {
             animator.SetBool("doSneeze", true);
+            audioSource.clip = coughingSound;
+            audioSource.Play();
             coughParticles.Play();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(coughingSound.length);
+
 
             if (traits.Contains(CharacterTraits.FreeCogher))
             {
@@ -458,7 +472,11 @@ public class CharacterController : MonoBehaviour, iInfectable
 
         isTalking = true;
         speechBallon.SetActive(true);
+        audioSource.clip = talking;
+        audioSource.time = Random.Range(0.1f, talking.length);
+        audioSource.Play();
         yield return new WaitForSeconds(duration);
+        audioSource.Stop();
         speechBallon.SetActive(false);
         isTalking = false;
 
@@ -542,12 +560,18 @@ public class CharacterController : MonoBehaviour, iInfectable
         bool showCanvas = timeSpeed == 1 ? false : true;
         canvas.SetActive(showCanvas);
 
-        if (isInfected && timeSpeed == 0)
+        if (timeSpeed == 0)
         {
-            sprite.color = Color.green;
-        }
-        else
+            audioSource.volume = 0;
+
+            if (isInfected)
+            {
+                sprite.color = Color.green;
+            }
+
+        } else
         {
+            audioSource.volume = audioVolume;
             sprite.color = Color.white;
         }
     }

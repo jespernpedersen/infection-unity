@@ -108,7 +108,7 @@ public class Objective
 
     public void UpdateUI()
     {
-        string text = "<color=grey>" + counter.ToString() + "</color>/" + goal;
+        string text = description + "  " + counter.ToString() + "/" + goal;
 
 
         if (isComplete)

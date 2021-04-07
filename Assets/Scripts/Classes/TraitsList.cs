@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class TraitsList
 {
     public List<Trait> list = new List<Trait>();

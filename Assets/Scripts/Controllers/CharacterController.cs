@@ -413,6 +413,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         for (int i = 0; i < intensity; i++)
         {
             animator.SetBool("doSneeze", true);
+            audioSource.Stop();
             audioSource.clip = coughingSound;
             audioSource.Play();
             coughParticles.Play();
@@ -472,6 +473,7 @@ public class CharacterController : MonoBehaviour, iInfectable
 
         isTalking = true;
         speechBallon.SetActive(true);
+        audioSource.Stop();
         audioSource.clip = talking;
         audioSource.time = Random.Range(0.1f, talking.length);
         audioSource.Play();

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3817883335833705135}
   - component: {fileID: 2622393410451502520}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: Human Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_TargetDisplay: 0
 --- !u!114 &3817883335833705135
 MonoBehaviour:

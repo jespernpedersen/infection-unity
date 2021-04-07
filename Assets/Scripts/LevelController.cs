@@ -107,4 +107,9 @@ public class LevelController : MonoBehaviour
             SceneSingleton.Instance.canvas.LevelComplete.SetActive(true);
         }
     }
+
+    public void SelectLevel(int level)
+    {
+        SceneManager.LoadScene(level);
+    }
 }

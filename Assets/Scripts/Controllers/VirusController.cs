@@ -17,6 +17,8 @@ public class VirusController : MonoBehaviour
     {
         // make a surface spreadable virus
         mutations.Add(SceneSingleton.Instance.mutationsList.mutations[0]);
+        mutations.Add(SceneSingleton.Instance.mutationsList.mutations[1]);
+        mutations.Add(SceneSingleton.Instance.mutationsList.mutations[2]);
         mutations.Add(SceneSingleton.Instance.mutationsList.mutations[3]);
     }
 

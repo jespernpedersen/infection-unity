@@ -12,10 +12,16 @@ public class CharacterController : MonoBehaviour, iInfectable
     private SpriteRenderer sprite;
     private Animator animator;
     private Rigidbody2D rg;
+    private AudioSource audioSource;
 
     public float walkingSpeed = 3;
     private float spreadDistanceTalk = 2f;
     private Vector3 moveToTarget;
+
+    [SerializeField]
+    private AudioClip talking;
+    [SerializeField]
+    private AudioClip coughingSound;
 
     private bool isTalking = false;
     private bool inAction = false;//prevents actions from playing while this plays
@@ -76,7 +82,8 @@ public class CharacterController : MonoBehaviour, iInfectable
         animator = gameObject.GetComponent<Animator>();
         rg = gameObject.GetComponent<Rigidbody2D>();
         canvas = transform.GetChild(0).gameObject;
-        nameUi.text = name;
+        nameUi.text = HumanName;
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -354,8 +361,11 @@ public class CharacterController : MonoBehaviour, iInfectable
         for (int i = 0; i < intensity; i++)
         {
             animator.SetBool("doSneeze", true);
+            audioSource.clip = coughingSound;
+            audioSource.Play();
             coughParticles.Play();
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(coughingSound.length);
+
 
             if (traits.Contains(CharacterTraits.FreeCogher))
             {
@@ -410,7 +420,10 @@ public class CharacterController : MonoBehaviour, iInfectable
 
         isTalking = true;
         speechBallon.SetActive(true);
+        audioSource.clip = talking;
+        audioSource.Play();
         yield return new WaitForSeconds(duration);
+        audioSource.Stop();
         speechBallon.SetActive(false);
         isTalking = false;
 

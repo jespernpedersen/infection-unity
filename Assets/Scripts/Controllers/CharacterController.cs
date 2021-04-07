@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour, iInfectable
     private Rigidbody2D rg;
 
     public float walkingSpeed = 3;
+    public float interactionDistance = 1.4f;
     private float spreadDistanceTalk = 2f;
     private Vector3 moveToTarget;
 
@@ -47,6 +48,8 @@ public class CharacterController : MonoBehaviour, iInfectable
     [SerializeField]
     private List<Symptom> symptoms = new List<Symptom>();
 
+    private bool makeDecisionAfterMoving = true;
+
     public List<CharacterTraits> Traits
     {
         get
@@ -54,8 +57,6 @@ public class CharacterController : MonoBehaviour, iInfectable
             return traits;
         }
     }
-
-
 
     private GameObject canvas;
 
@@ -76,8 +77,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         animator = gameObject.GetComponent<Animator>();
         rg = gameObject.GetComponent<Rigidbody2D>();
         canvas = transform.GetChild(0).gameObject;
-        nameUi.text = name;
-
+        nameUi.text = HumanName;
     }
 
     // Start is called before the first frame update
@@ -93,13 +93,14 @@ public class CharacterController : MonoBehaviour, iInfectable
             Trait traitReference = new Trait();
             foreach (Trait traitModel in SceneSingleton.Instance.traitsList.list)
             {
+                Debug.Log(traitModel.name);
                 if (traitModel.trait == trait)
                 {
                     traitReference = traitModel;
                     break;
                 }
             }
-
+            Debug.Log(traitReference.name);
             newTrait.GetComponent<Image>().color = traitReference.colour;
             newTrait.transform.GetChild(1).GetComponent<Text>().text = traitReference.name;
 
@@ -115,7 +116,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         {
 
             moveToTarget.y = transform.position.y;
-            if (Vector2.Distance(transform.position, moveToTarget) > 0.5f)
+            if (Vector2.Distance(transform.position, moveToTarget) >= interactionDistance)
             {
                 int direction = transform.position.x < moveToTarget.x ? 1 : -1;
                 rg.MovePosition(transform.position + (transform.right * (walkingSpeed * direction) * Time.deltaTime));
@@ -128,7 +129,7 @@ public class CharacterController : MonoBehaviour, iInfectable
             state = CharacterStates.Idle;
 
             inAction = false;
-            MakeDecision();
+            MakeDecision(makeDecisionAfterMoving);
         }
     }
 
@@ -150,7 +151,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         switch (routine[curActionIndex].action)
         {
             case CharacterStates.Idle:
-                curAction = StartCoroutine(Idle(routine[curActionIndex].duration));
+                curAction = StartCoroutine(Idle(routine[curActionIndex].coordenate));
                 break;
             case CharacterStates.Move:
 
@@ -206,17 +207,33 @@ public class CharacterController : MonoBehaviour, iInfectable
     }
 
     /// <summary>
-    /// Sets the character into an idle state
+    /// Moves the character to a position and goes into an idle state
     /// </summary>
+    /// <param name="pos">Position coordinates to idle</param>
     /// <param name="duration">duration of idle</param>
     /// <returns></returns>
-    private IEnumerator Idle(float duration = 0)
+    private IEnumerator Idle(Vector2 pos, float duration = 0)
     {
         if (inAction) yield break;
 
+
+        makeDecisionAfterMoving = false;
+        pos = new Vector2(pos.x, transform.position.y);
+        inAction = false;
+        MoveTo(pos);
+        while (Vector2.Distance(pos, transform.position) > interactionDistance)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        stopAllAnimations();
         state = CharacterStates.Idle;
 
         inAction = true;
+        if (duration == 0)
+        {
+            duration = routine[curActionIndex].duration;
+        }
         yield return new WaitForSeconds(duration);
         inAction = false;
 
@@ -224,22 +241,38 @@ public class CharacterController : MonoBehaviour, iInfectable
     }
 
     /// <summary>
-    /// 
+    /// Makes a humen interact with an iInteractable object. If it is too far, the human will move closer
     /// </summary>
     /// <param name="objToInteract">Object to interact with</param>
     /// <param name="executeNextBehaviour">true= play next routine action; false = repeat current action</param>
-    /// <returns></returns>
-    private IEnumerator Interact(Transform objToInteract = null, bool executeNextBehaviour = false)
+    /// <returns>WaitForSeconds</returns>
+    public IEnumerator Interact(Transform objToInteract = null, bool executeNextBehaviour = true)
     {
-        if (inAction) yield break;
+        CharacterStates previousAction = CharacterStates.None;
+        if (inAction)
+        {
+            previousAction = routine[curActionIndex].action;
+            StopCoroutine(curAction);
 
+        }
+
+        makeDecisionAfterMoving = false;
+        Vector2 pos = transform.position;
+        pos.x = objToInteract.position.x;
+        inAction = false;
+        MoveTo(pos);
+        while (Vector2.Distance(pos, transform.position) > interactionDistance)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        
         inAction = true;
+        stopAllAnimations();
         animator.SetBool("doInteract", true);
 
         state = CharacterStates.Interact;
 
         // code to interact with objects
-
         yield return new WaitForSeconds(1f);
 
 
@@ -261,6 +294,12 @@ public class CharacterController : MonoBehaviour, iInfectable
         inAction = false;
         animator.SetBool("doInteract", false);
 
+        if(previousAction != CharacterStates.None)
+        {
+            executeNextBehaviour = false;
+        }
+
+        makeDecisionAfterMoving = true;
         MakeDecision(executeNextBehaviour);
 
     }
@@ -269,8 +308,17 @@ public class CharacterController : MonoBehaviour, iInfectable
     {
         if (inAction) yield break;
 
+        makeDecisionAfterMoving = false;
+
         routine[curActionIndex].coordenate.y = transform.position.y;
-        if (Vector2.Distance(transform.position, routine[curActionIndex].coordenate) < 0.5f)
+
+        MoveTo(routine[curActionIndex].coordenate);
+        while (Vector2.Distance(routine[curActionIndex].coordenate, transform.position) > interactionDistance)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        if (Vector2.Distance(transform.position, routine[curActionIndex].coordenate) < interactionDistance)
         {
             state = CharacterStates.Sit;
 
@@ -516,10 +564,7 @@ public class CharacterController : MonoBehaviour, iInfectable
         if (interactable.objectType == Interactable.Door && !collision.transform.GetComponent<DoorController>().IsOpen)
         {
             // stop all animations
-            foreach(AnimatorControllerParameter parameter in animator.parameters)
-            {
-                animator.SetBool(parameter.name, false);
-            }
+            stopAllAnimations();
 
             StartCoroutine(Interact(collision.transform, collision.transform.GetComponent<DoorController>().IsLocked));
         }
@@ -538,6 +583,14 @@ public class CharacterController : MonoBehaviour, iInfectable
             StartCoroutine(Talk(2f, person.gameObject));
         }
 
+    }
+
+    private void stopAllAnimations()
+    {
+        foreach (AnimatorControllerParameter parameter in animator.parameters)
+        {
+            animator.SetBool(parameter.name, false);
+        }
     }
 
 }
